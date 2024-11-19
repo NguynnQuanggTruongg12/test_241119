@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robot Control</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="top-controls">
+            <div class="enable-switch">
+                <label>STATUS:</label>
+                <button id="enableButton" onclick="toggleEnable()">OFF</button>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <div class="control-row">
+                <button class="control-button" id="up">↑</button>
+            </div>
+            <div class="control-row">
+                <button class="control-button" id="left">←</button>
+                <button class="control-button" id="stop">⦿</button>
+                <button class="control-button" id="right">→</button>
+            </div>
+            <div class="control-row">
+                <button class="control-button" id="down">↓</button>
+            </div>
+        </div>
+
+        <div class="sliders">
+            <div class="slider">
+                <label>Straight speed: <span id="straightSpeed">0</span></label>
+                <input type="range" min="0" max="1" value="0" step="0.1" id="straightSpeedSlider" oninput="updateStraightSpeed()">
+            </div>
+            <div class="slider">
+                <label>Rotation speed: <span id="rotationSpeed">0</span></label>
+                <input type="range" min="0" max="1" value="0" step="0.1" id="rotationSpeedSlider" oninput="updateRotationSpeed()">
+            </div>
+        </div>
+    </div>
+    <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
